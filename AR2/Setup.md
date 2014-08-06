@@ -1,0 +1,47 @@
+<!-- Customization of default CSS -->
+<head>
+<style>
+body {font-size: 15px;}
+</style>
+</head>
+
+
+Setup
+-----
+
+Let $(W_n)_{n \in \mathbb{Z}}$ be a sequence of i.i.d. $\mathcal{N}(0,1)$ random variables indexed by the integers
+$\mathbb{Z}$ (a doubly infinite sequence).
+
+We consider an autoregressive process of order 2 (an AR(2)-process) that solves the autoregression
+$$X_n - b_1 X_{n-1} - b_2 X_{n-2} = W_n.$$
+The *characteristic polynomial* is 
+$$q(z) = 1 - b_1 z - b_2 z^2.$$
+
+If $q$ has (complex) roots outside of the closed unit disc there is an $R > 1$ and a 
+sequence $(a_k)_{k \geq 1}$ such that 
+$$\frac{1}{q(z)} = \sum_{k=1}^{\infty} a_k z^k$$
+for all complex $z$'s with $|z| \leq R$. This is a result from complex analysis. The function 
+$1/q$ is holomorphic in a disc with radius $R > 1$, and is thus given by its Taylor expansion. You can take this 
+for granted, if you don't know about complex analysis. 
+
+When $q$ has roots outside of the closed unit disc, the infinite moving average process
+$$X_n = \sum_{k=1}^{\infty} a_k W_{n-k}$$
+is a solution to the autoregression. It is weakly stationary meaning that there is an 
+autocovariance function $\gamma : \mathbb{N} \to \mathbb{R}$ such that 
+$$\text{cov}(X_n, X_k) = \gamma(n - k)$$
+for all $n \geq k \in \mathbb{N}$. The autocorrelation function is 
+$$\rho(k) = \frac{\gamma(k)}{\sigma^2}$$
+where $\sigma^2 = \gamma(0)$. 
+
+By using the autoregression we find that 
+$$\gamma(1) = \text{cov}(X_3, X_2) = \text{cov}(b_1 X_2 + b_2 X_1, X_2) = b_1 \sigma^2 + b_2 \gamma(1)$$
+and 
+$$\gamma(2) = \text{cov}(X_4, X_2) = \text{cov}(b_1 X_3 + b_2 X_2, X_2) = b_1 \gamma(1) + b_2 \sigma^2.$$
+Isolating the correlation $\rho(1) = \gamma(1)/\sigma^2$ in the first equation gives that 
+$$\rho(1) = \frac{b_1}{1 - b_2}.$$
+If we plug this into the second equation, we find that 
+$$\rho(2) = b_2 + \frac{b_1^2}{1 - b_2}.$$
+When the roots are outside the closed unit circle, these equations give a one-to-one correspondance between the 
+two $b$-coefficients and the two first autocorrelations. 
+
+

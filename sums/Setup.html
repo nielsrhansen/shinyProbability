@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Setup</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<!-- Customization of default CSS -->
+
+<p><head></p>
+
+<style>
+body {font-size: 15px;}
+</style>
+
+<p></head></p>
+
+<h2>Setup</h2>
+
+<p>In this example we consider a fixed sequence \( a_k \geq 0 \), a sequence of 
+i.i.d. random variables \( Z_1, Z_2, \ldots \) with<br/>
+\[ P(Z_k = 1) = P(Z_k = -1) = \frac{1}{2}, \]
+and we let 
+\[ S_n = 2 + \sum_{k=1}^n Z_k a_k. \]
+That is, \( S_n \) is the sum of \( a_1, \ldots, a_n \) with random signs.  </p>
+
+<p>A possible interpretation is that we play a game with initial capital 2, and in the \( n \)&#39;th 
+game we either win or loose \( a_n \) with probability 0.5. In this game we allow the player to 
+have a negative capital. Some of the interesting questions are:</p>
+
+<ul>
+<li>What is the distribution of the capital after \( n \) games?</li>
+<li>What happens to the distribution of the capital when \( n \to \infty \)?</li>
+<li>What happens to the capital in a single game when \( n \to \infty \)? 
+Will it continue to fluctuate or will it stabilize?</li>
+<li>What is the probability that the player will have a negative capital eventually?</li>
+</ul>
+
+</body>
+
+</html>
+

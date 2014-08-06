@@ -1,0 +1,33 @@
+<!-- Customization of default CSS -->
+<head>
+<style>
+body {font-size: 15px;}
+</style>
+</head>
+
+
+Setup
+-----
+
+In this example we consider a fixed sequence $a_k \geq 0$, a sequence of 
+i.i.d. random variables $Z_1, Z_2, \ldots$ with  
+$$P(Z_k = 1) = P(Z_k = -1) = \frac{1}{2},$$
+and we let 
+$$S_n = 2 + \sum_{k=1}^n Z_k a_k.$$
+That is, $S_n$ is the sum of $a_1, \ldots, a_n$ with random signs.  
+
+A possible interpretation is that we play a game with initial capital 2, and in the $n$'th 
+game we either win or loose $a_n$ with probability 0.5. In this game we allow the player to 
+have a negative capital. Some of the interesting questions are:
+
+* What is the distribution of the capital after $n$ games?
+* What happens to the distribution of the capital when $n \to \infty$?
+* What happens to the capital in a single game when $n \to \infty$? 
+Will it continue to fluctuate or will it stabilize?
+* What is the probability that the player will have a negative capital eventually?
+
+
+
+
+
+

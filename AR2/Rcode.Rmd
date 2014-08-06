@@ -1,0 +1,14 @@
+
+Required packages and initialization
+------------------------------------
+
+```{r, eval = FALSE, ,tidy=FALSE}
+
+```
+
+The simulation and plotting
+---------------------------
+
+```{r, eval = FALSE, tidy=FALSE}
+
+```

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>The simulation</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<!-- Customization of default CSS -->
+
+<p><head></p>
+
+<style>
+body {font-size: 15px;}
+</style>
+
+<p></head>
+<br></p>
+
+<h2>The simulation</h2>
+
+<p>The top left is the sample path of the AR(2)-process, and the bottom left
+shows that roots of the characteristic polynomial for the given choice of 
+parameters. If they are outside of the unit disc, the process is a 
+(weakly) stationary process. </p>
+
+<p>The top right is the running average
+\[ \frac{1}{n} S_n = \frac{1}{n} \sum_{k=1}^n X_k \]
+of the process itself. The empirical second moment is 
+\[ \hat{\sigma}^2_n =  \frac{1}{n} \sum_{k=1}^n X_k^2, \] and 
+the lag-\( k \) empirical autocorrelation is computed as 
+\[ \text{AC}_n(k) = \frac{1}{\hat{\sigma}^2_n} \frac{1}{n - k} \sum_{j = k + 1}^n X_{j} X_{j-k}. \]</p>
+
+<p>The bottom right figure shows \( \text{AC}_n(1) \) (blue) and \( \text{AC}_n(2) \) (red).</p>
+
+<ul>
+<li>For which values of the parameters \( b_1 \) and \( b_2 \) is the process (weakly)
+stationary?</li>
+<li>Under which conditions does \( \text{AC}_n(k) \) converge almost surely, and 
+what is the limit?</li>
+<li>How can \( \text{AC}_n(1) \) and \( \text{AC}_n(2) \) be used to estimate the \( b_1 \) and 
+\( b_2 \) parameters from observations of an AR(2)-process?</li>
+</ul>
+
+</body>
+
+</html>
+
