@@ -3,9 +3,10 @@ shinyProbability
 
 Interactive experiments with probability theory using R and Shiny.
 
-Install and load the shiny package for R. Run
+Install the shiny package for R. Run
 
 ```
+library(shiny)
 runGitHub("shinyProbability", "nielsrhansen", subdir = "sums")
 ```
 
