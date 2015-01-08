@@ -10,8 +10,8 @@ Setup
 -----
 
 The Law of Large Numbers (LNN) states that if $X_1, X_2, \ldots$ are i.i.d. random variables with 
-expectation $\mu$ then 
-$$\frac{1}{n} \sum_{k=1}^n X_k \rightarrow \mu$$
+finite expectation, that is, $E|X_1| < \infty$, then 
+$$\frac{1}{n} \sum_{k=1}^n X_k \rightarrow E X_1$$
 for $n \to \infty$. The limit is deterministic, and the convergence is in probability as well as **almost sure** 
 (the almost sure version of LLN is often referred to as the **strong** law of large numbers). 
 
