@@ -16,8 +16,8 @@ and we let
 $$S_n = 2 + \sum_{k=1}^n Z_k a_k.$$
 That is, $S_n$ is the sum of $a_1, \ldots, a_n$ with random signs.  
 
-A possible interpretation is that we play a game with initial capital 2, and in the $n$'th 
-game we either win or loose $a_n$ with probability 0.5. In this game we allow the player to 
+A possible interpretation is that we play a game with initial capital 2, and in the $k$'th 
+game we either win or loose $a_k$ with probability 0.5. In this game we allow the player to 
 have a negative capital. Some of the interesting questions are:
 
 * What is the distribution of the capital after $n$ games?
