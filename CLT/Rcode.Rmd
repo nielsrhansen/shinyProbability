@@ -7,8 +7,9 @@ require(ggplot2)        ## Grammar of graphics package
 require(gridExtra)      ## Plot arrangement
 theme_set(theme_bw())   ## Black and white theme for ggplot2
 
-n <- 50                  ## Number of random variables per replication
-m <- 500                ## Number of replications
+n <- 50                   ## Number of random variables per replication
+m <- 500                  ## Number of replications
+x <- seq(-3.5, 3.5, 0.01) ## x-values for plots
 ```
 
 The simulation and plotting
