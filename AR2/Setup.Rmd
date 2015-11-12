@@ -21,7 +21,7 @@ If $q$ has (complex) roots outside of the closed unit disc there is an $R > 1$ a
 sequence $(a_k)_{k \geq 1}$ such that 
 $$\frac{1}{q(z)} = \sum_{k=1}^{\infty} a_k z^k$$
 for all complex $z$'s with $|z| \leq R$. This is a result from complex analysis. The function 
-$1/q$ is holomorphic in a disc with radius $R > 1$, and is thus given by its Taylor expansion. You can take this 
+$1/q$ is holomorphic in a disc with radius $R > 1$, and is thus given by its Taylor series. You can take this 
 for granted, if you don't know about complex analysis. 
 
 When $q$ has roots outside of the closed unit disc, the infinite moving average process
