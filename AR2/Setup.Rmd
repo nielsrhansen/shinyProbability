@@ -19,13 +19,13 @@ $$q(z) = 1 - b_1 z - b_2 z^2.$$
 
 If $q$ has (complex) roots outside of the closed unit disc there is an $R > 1$ and a 
 sequence $(a_k)_{k \geq 1}$ such that 
-$$\frac{1}{q(z)} = \sum_{k=1}^{\infty} a_k z^k$$
+$$\frac{1}{q(z)} = \sum_{k=0}^{\infty} a_k z^k$$
 for all complex $z$'s with $|z| \leq R$. This is a result from complex analysis. The function 
 $1/q$ is holomorphic in a disc with radius $R > 1$, and is thus given by its Taylor series. You can take this 
 for granted, if you don't know about complex analysis. 
 
 When $q$ has roots outside of the closed unit disc, the infinite moving average process
-$$X_n = \sum_{k=1}^{\infty} a_k W_{n-k}$$
+$$X_n = \sum_{k=0}^{\infty} a_k W_{n-k}$$
 is a solution to the autoregression. It is weakly stationary meaning that there is an 
 autocovariance function $\gamma : \mathbb{N} \to \mathbb{R}$ such that 
 $$\text{cov}(X_n, X_k) = \gamma(n - k)$$
