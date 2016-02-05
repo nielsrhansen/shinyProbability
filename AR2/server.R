@@ -58,7 +58,7 @@ shinyServer(function(input, output) {
     p2 <- qplot(x = seq_along(data$cm), y = data$cm, geom = "line") +
       ylab(expression(S[n]/n)) + xlab("n") +
       geom_hline(yintercept = 0) 
-    p3 <- qplot(x = Re(data$roots), y = Im(data$roots), size = I(4), geom = "blank") +
+    p3 <- qplot(x = Re(data$roots), y = Im(data$roots), geom = "blank") +
       ylab("Im") + xlab("Re") + xlim(c(-2, 2)) + ylim(-2, 2) + 
       geom_polygon(data = circleFun(), aes(x, y), alpha = 0.4, fill = "red") +
       geom_point(size = 4)
