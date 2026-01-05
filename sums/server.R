@@ -28,12 +28,12 @@ shinyServer(function(input, output) {
   
   output$plot <- renderPlot({
     p <- ggplot(data = sequence(), aes(x = nn, y = value, color = as.factor(L1))) + 
-      scale_color_discrete(guide = FALSE) + geom_hline(yintercept = 0) +
+      scale_color_discrete(guide = "none") + geom_hline(yintercept = 0) +
       ylab(expression(S[n])) + xlab("n")
       if (input$connect) 
-        p <- p + geom_line(size = 2)
+        p <- p + geom_line(size = 1)
       if (input$points)
-        p <- p + geom_point(size = 4)
+        p <- p + geom_point(size = 2)
     print(p)
   })
 })

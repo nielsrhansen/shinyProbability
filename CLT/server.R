@@ -35,16 +35,20 @@ shinyServer(function(input, output) {
   
   output$plot <- renderPlot({
     samp <- sequence()
-    p1 <- qplot(samp, seq(1/m, 1, 1/m), geom = "step") + 
+    p1 <- ggplot(mapping = aes(samp, seq(1/m, 1, 1/m))) + 
+      geom_step() + 
       geom_line(aes(x = x, y = pnorm(x)), color = "red") +
       ylab("Probability") + xlab("x") + ggtitle("Distribution functions")
-    p2 <- qplot(ppoints(m), pnorm(samp)) + 
+    p2 <- ggplot(mapping = aes(ppoints(m), pnorm(samp))) +
+      geom_point() + 
       geom_abline(intercept = 0, slope = 1) +
       ylab("Sample percentiles") + xlab("Theoretical percentiles") + ggtitle("Probability-Probability plot")  
-    p3 <- qplot(samp, ..density.., geom = "histogram", binwidth = 0.3, fill = I(gray(0.7))) + 
-      geom_line(aes(x = x, y = dnorm(x)), color = "red", size = 1.5) +
+    p3 <- ggplot(mapping = aes(samp, after_stat(density))) + 
+      geom_histogram(binwidth = 0.3, fill = I(gray(0.7))) + 
+      geom_line(aes(x = x, y = dnorm(x)), color = "red", linewidth = 1.5) +
       ylab("Density") + xlab("x") + ggtitle("Histogram and density")
-    p4 <- qplot(sample = samp, stat = "qq") + 
+    p4 <- ggplot() + 
+      stat_qq(aes(sample = samp)) + 
       geom_abline(intercept = 0, slope = 1) +
       ggtitle("Quantile-Quantile plot")
     grid.arrange(p1, p2, p3, p4, nrow = 2)

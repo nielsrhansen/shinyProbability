@@ -10,14 +10,14 @@ shinyUI(pageWithSidebar(
     
     br(),
     actionButton("seed", "Resimulate"),
-    includeHTML("Questions.html")
+    suppressWarnings(includeHTML("Questions.html"))
     ),
   
   mainPanel(
     tabsetPanel(
-      tabPanel("Plot", plotOutput("plot"))
+      suppressWarnings(tabPanel("Plot", plotOutput("plot")))
       #tabPanel("R code", includeHTML("Rcode.html"))
     ),
-    includeHTML("Setup.html")
+    suppressWarnings(includeHTML("Setup.html"))
   )
 ))

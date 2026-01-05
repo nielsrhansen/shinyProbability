@@ -46,26 +46,34 @@ shinyServer(function(input, output) {
     cc1 <- cumsum(x[-n] * x[-1]) / seq_along(x[-1]) / sigma
     cc2 <- cumsum(x[-c(n-1, n)] * x[-c(1, 2)]) / seq_along(x[-c(1, 2)]) / sigma
     
-    list(x = x, cm = cm, cc1 = cc1, cc2 = cc2, roots = roots)
+    list(
+      xcm = data.frame(x = x, cm = cm), 
+      cc1 = data.frame(cc1), 
+      cc2 = data.frame(cc2), 
+      roots = data.frame(roots)
+      )
   })  
   
   output$plot <- renderPlot({
     data <- simulation()
     b1 <- input$b1
     b2 <- input$b2
-    p1 <- qplot(y = data$x) + geom_line() +
+    p1 <- ggplot(data$xcm, aes(x = seq_along(x), y = x)) + 
+      geom_line() +
       ylab(expression(X[n])) + xlab("n") 
-    p2 <- qplot(x = seq_along(data$cm), y = data$cm, geom = "line") +
+    p2 <- ggplot(data$xcm, aes(x = seq_along(cm), y = cm)) + 
+      geom_line() +
       ylab(expression(S[n]/n)) + xlab("n") +
       geom_hline(yintercept = 0) 
-    p3 <- qplot(x = Re(data$roots), y = Im(data$roots), geom = "blank") +
+    p3 <- ggplot(data$roots, aes(x = Re(roots), y = Im(roots))) + 
       ylab("Im") + xlab("Re") + xlim(c(-2, 2)) + ylim(-2, 2) + 
       geom_polygon(data = circleFun(), aes(x, y), alpha = 0.4, fill = "red") +
       geom_point(size = 4)
-    p4 <- qplot(x = seq_along(data$cc1), y = data$cc1, geom = "line", color = I("blue")) +
+    p4 <- ggplot(data$cc1, aes(x = seq_along(cc1), y = cc1)) +
+      geom_line(color = I("blue")) +
       ylab(expression(AC[n])) + xlab("n") +
-      geom_line(aes(x = seq_along(data$cc2), y = data$cc2), color = "red")
-      if (all(Mod(data$roots) > 1)) {
+      geom_line(data = data$cc2, aes(x = seq_along(cc2), y = cc2), color = "red")
+      if (all(Mod(data$roots$roots) > 1)) {
         rho1 <- b1 / (1 - b2)
         rho2 <- b2 + b1^2 / (1 - b2)
       p4 <- p4 + geom_hline(yintercept = rho1, color = "blue") +

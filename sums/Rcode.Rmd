@@ -3,8 +3,8 @@ Required packages and initialization
 ------------------------------------
 
 ```{r, eval = FALSE, ,tidy=FALSE}
-require(reshape2)       ## Includes the 'melt' function used below
-require(ggplot2)        ## Grammar of graphics package
+library(reshape2)       ## Includes the 'melt' function used below
+library(ggplot2)        ## Grammar of graphics package
 theme_set(theme_bw())   ## Black and white theme for ggplot2
 
 m <- 1                  ## Number of sequences
@@ -26,6 +26,6 @@ for (i in 1:m) {
 
 nn <- c(0, k)
 ggplot(data = cbind(nn, melt(sn)), aes(x = nn, y = value, color = as.factor(L1))) + 
-      scale_color_discrete(guide = FALSE) + geom_hline(yintercept = 0) +
+      scale_color_discrete(guide = "none") + geom_hline(yintercept = 0) +
       ylab(expression(S[n])) + xlab("n") + geom_point()
 ```

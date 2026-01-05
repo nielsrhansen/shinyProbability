@@ -1,3 +1,5 @@
+questions <- 
+
 shinyUI(pageWithSidebar(
   
   headerPanel("The central limit theorem"),
@@ -14,14 +16,14 @@ shinyUI(pageWithSidebar(
     sliderInput("n", "Number of random variables (n):", value = 50, min = 1, max = 500),
     br(),
     actionButton("seed", "Resimulate"),
-    includeHTML("Questions.html")
+    suppressWarnings(includeHTML("Questions.html"))
     ),
   
   mainPanel(
     tabsetPanel(
       tabPanel("Plot", plotOutput("plot")),
-      tabPanel("R code", includeHTML("Rcode.html"))
+      tabPanel("R code", suppressWarnings(includeHTML("Rcode.html")))
     ),
-    includeHTML("Setup.html")
+    suppressWarnings(includeHTML("Setup.html"))
   )
 ))

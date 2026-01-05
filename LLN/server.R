@@ -42,10 +42,10 @@ shinyServer(function(input, output) {
   output$plot <- renderPlot({
     data <- sequence()
     p1 <- ggplot(data = data$samp, aes(x = nn, y = value, color = as.factor(L1))) + 
-      scale_color_discrete(guide = FALSE) +
+      scale_color_discrete(guide = "none") +
       ylab(expression(f(X[n]))) + xlab("n") + geom_point()
     p2 <- ggplot(data = data$mean, aes(x = nn, y = value, color = as.factor(L1))) + 
-      scale_color_discrete(guide = FALSE) +
+      scale_color_discrete(guide = "none") +
       ylab(expression(S[n]/n)) + xlab("n") +
       geom_hline(yintercept = data$tmean) + geom_line()
     grid.arrange(p1, p2, nrow = 2)

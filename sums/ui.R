@@ -18,14 +18,14 @@ shinyUI(pageWithSidebar(
     checkboxInput("points", "Points", TRUE),
     br(),
     actionButton("seed", "Resimulate"),
-    includeHTML("Questions.html")
+    suppressWarnings(includeHTML("Questions.html"))
     ),
   
   mainPanel(
     tabsetPanel(
       tabPanel("Plot", plotOutput("plot")),
-      tabPanel("R code", includeHTML("Rcode.html"))
+      tabPanel("R code", suppressWarnings(includeHTML("Rcode.html")))
     ),
-    includeHTML("Setup.html")
+    suppressWarnings(includeHTML("Setup.html"))
   )
 ))
