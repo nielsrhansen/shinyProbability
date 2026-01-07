@@ -9,6 +9,8 @@ if(!require(reshape2))
 if(!require(gridExtra))
   install.packages("gridExtra", repos = "http://mirrors.dotsrc.org/cran/")
 
+theme_set(theme_bw())   ## Black and white theme for ggplot2
+
 shinyServer(function(input, output) {
 
   sequence <- reactive({
@@ -25,29 +27,47 @@ shinyServer(function(input, output) {
       sn[[i]] <- switch(input$f,
                         id = sn[[i]],
                         exp = exp(sn[[i]]),
-                        ind = as.numeric(sn[[i]] >= 1))
+                        ind = as.numeric(sn[[i]] > 1))
     }
     nn <- seq(1, n, 1)
     list(samp = cbind(nn, melt(sn)), 
          mean = cbind(nn, melt(lapply(sn, function(x) cumsum(x) / nn))),
-         tmean = switch(input$dist,
-                        normal = 0,
-                        exponential = 1,
-                        T2 = 0,
-                        cauchy = 0,
-                        poisson = 1)
+         tmean = switch(
+           input$f,
+           id = switch(input$dist,
+                  normal = 0,
+                  exponential = 1,
+                  T2 = 0,
+                  cauchy = NA,
+                  poisson = 1),
+           exp = switch(input$dist,
+                        normal = exp(1/2),
+                        exponential = NA,
+                        T2 = NA,
+                        cauchy = NA,
+                        poisson = exp(exp(1) - 1)),
+           ind = switch(input$dist,
+                        normal = pnorm(1, lower.tail = FALSE),
+                        exponential = pexp(1, lower.tail = FALSE),
+                        T2 = pt(1, 2, lower.tail = FALSE),
+                        cauchy = pt(1, 1, lower.tail = FALSE),
+                        poisson = ppois(1, 1, lower.tail = FALSE))
+         )
     )
   })  
   
   output$plot <- renderPlot({
     data <- sequence()
+    line <- geom_hline(yintercept = data$tmean)
+    if(is.na(data$tmean)) 
+      line <- c()
     p1 <- ggplot(data = data$samp, aes(x = nn, y = value, color = as.factor(L1))) + 
       scale_color_discrete(guide = "none") +
       ylab(expression(f(X[n]))) + xlab("n") + geom_point()
     p2 <- ggplot(data = data$mean, aes(x = nn, y = value, color = as.factor(L1))) + 
       scale_color_discrete(guide = "none") +
       ylab(expression(S[n]/n)) + xlab("n") +
-      geom_hline(yintercept = data$tmean) + geom_line()
+      geom_line() + line
     grid.arrange(p1, p2, nrow = 2)
   })
 })

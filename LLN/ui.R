@@ -13,7 +13,7 @@ shinyUI(pageWithSidebar(
     radioButtons("f", "f(x)",
                  list("x" = "id", 
                       "exp(x)" = "exp", 
-                      "1(x >= 1)" = "ind")), 
+                      "1(x > 1)" = "ind")), 
     br(),
     
     sliderInput("n", "Number of random variables (n):", value = 50, min = 1, max = 200),

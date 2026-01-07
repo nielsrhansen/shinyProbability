@@ -17,6 +17,8 @@ circleFun <- function(center = c(0, 0), r = 1, npoints = 100){
   rbind(data.frame(x = xx, y = yy), center)
 }
 
+theme_set(theme_bw())   ## Black and white theme for ggplot2
+
 shinyServer(function(input, output) {
 
   simulation <- reactive({

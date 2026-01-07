@@ -8,6 +8,7 @@ if(!require(gridExtra))
   install.packages("gridExtra", repos = "http://mirrors.dotsrc.org/cran/")
 m <- 500   ## Number of replications
 x <- seq(-3.5, 3.5, 0.01)
+theme_set(theme_bw())   ## Black and white theme for ggplot2
 
 shinyServer(function(input, output) {
 

@@ -6,6 +6,7 @@ if(!require(ggplot2))
   install.packages("ggplot2", repos = "http://mirrors.dotsrc.org/cran/")
 if(!require(reshape2))
   install.packages("reshape2", repos = "http://mirrors.dotsrc.org/cran/")
+theme_set(theme_bw())   ## Black and white theme for ggplot2
 
 shinyServer(function(input, output) {
 
